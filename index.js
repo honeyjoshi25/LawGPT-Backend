@@ -4,7 +4,6 @@ const bodyParser = require("body-parser");
 require("dotenv").config();
 
 const authRoutes = require("./routes/auth-routes/auth");
-const chatRoutes = require("./routes/chathistory-routes/chathistory");
 
 const app = express();
 app.use(express.json());
@@ -27,7 +26,6 @@ app.get("/", (req, res) => {
 });
 
 app.use("/auth", authRoutes);
-app.use("/chat", chatRoutes);
 
 app.use("*", (req, res, next) => {
   res.status(404).json({
